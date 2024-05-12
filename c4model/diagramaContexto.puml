@@ -1,0 +1,35 @@
+@startuml diagramaContexto.puml
+
+
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+
+    System_Boundary(Context, "To-Do List") {
+        Person(User, "User")
+        
+        Container(SoftwareSystem, "System") {
+            Container(BancoDeDados, "Banco De Dados") {
+                [task]
+            }
+            
+            Component(API, "API") {
+                [taskController]
+                [taskService]
+                [taskRepository]
+            }
+        }
+
+    }
+
+
+
+Rel(User, API, "Solicitação de tarefas")
+Rel(API, taskService, "Gerencia tarefas")
+Rel(taskController, taskService, "Encaminha solicitação")
+Rel(API, BancoDeDados, "Armazena dados em")
+Rel(taskService, taskRepository, "Acessa dados de")
+
+@enduml

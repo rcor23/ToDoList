@@ -1,0 +1,20 @@
+@startuml diagramaComponentes.puml
+
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+        System_Boundary(Backend_Application, "To-Do List") {
+            Container(Backend, "Spring Boot") {
+                Component(taskController, "taskController")
+                Component(taskService, "taskService")
+                Component(taskRepository, "taskRepository")
+                Component(task, "task")
+            }
+        }
+
+Rel(taskController, taskService, "Usa")
+Rel(taskService, taskRepository, "Acessa")
+Rel(taskRepository, task, "Usa")
+
+@enduml
