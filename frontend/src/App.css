@@ -1,0 +1,24 @@
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  margin-top: 20px;
+}
+
+.criar-tarefa {
+  /* Estilo para o contêiner Criar Tarefa */
+  width: 100%;
+  height: 10%; 
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.suas-tarefas {
+  /* Estilo para o contêiner Suas Tarefas */
+  width: 100%;
+  height: 60%; 
+  background-color: #e0e0e0;
+  overflow-y: auto; 
+}

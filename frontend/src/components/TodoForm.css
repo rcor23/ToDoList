@@ -1,0 +1,62 @@
+/* TodoForm.css */
+.tarefa-form-card {
+  flex: 1;
+  max-width: 48%;
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-wrapper input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 4px 8px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.button-criar-tarefa {
+  background-color: #993399;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.button-type-form {
+  background-color: #993399;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 4px;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .tarefa-form-card {
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,40 @@
+@startuml diagramaSequenciaUC01_TaskLivre
+
+title Diagrama de Sequência referente ao UC-01: Criar Tarefa (Tipo Livre)
+
+actor User
+participant Frontend
+participant TaskController
+participant TaskService
+participant TaskRepository
+participant Task
+participant Database
+
+User -> Frontend: Criar tarefa do tipo Livre
+activate Frontend
+Frontend -> TaskController: POST /task/create/livre
+activate TaskController
+TaskController -> TaskService: create(DTOCreateTask)
+activate TaskService
+alt if descrição inválida
+    TaskService --> TaskController: throw IllegalArgumentException
+    TaskController --> User: HTTP 400 BAD REQUEST
+else else
+    TaskService -> Task: Task(description, TaskTypeEnum.LIVRE, priority)
+    TaskService -> TaskRepository: save(Task)
+    activate TaskRepository
+    TaskRepository -> Database: INSERT INTO tasks VALUES (...)
+    activate Database
+    Database --> TaskRepository: Saved Task
+    deactivate Database
+    TaskRepository --> TaskService: Task
+    deactivate TaskRepository
+    TaskService --> TaskController: Task
+    deactivate TaskService
+    TaskController -> Frontend: Task (HTTP 201 CREATED)
+    deactivate TaskController
+    Frontend -> User: Tarefa criada do tipo Livre
+    deactivate Frontend
+end
+
+@enduml

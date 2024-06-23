@@ -1,0 +1,30 @@
+@startuml diagramaContexto
+
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+System_Boundary(To_Do_Application, "To-Do List") {
+    Person(User, "User")
+    
+    Container(SoftwareSystem, "Backend System") {
+        Container(Database, "Database") {
+            [task]
+        }
+        
+        Component(API, "API Layer") {
+            [taskController]
+            [taskService]
+            [taskRepository]
+        }
+    }
+}
+
+Rel(User, API, "Requests tasks")
+Rel(API, taskService, "Manages tasks")
+Rel(taskController, taskService, "Routes requests")
+Rel(API, Database, "Stores data in")
+Rel(taskService, taskRepository, "Accesses data from")
+
+@enduml

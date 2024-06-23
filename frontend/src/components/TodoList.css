@@ -1,0 +1,44 @@
+/* TodoList.css */
+.tarefa-list-card {
+  flex: 1;
+  max-width: 48%;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tarefa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  font-family: 'Roboto', sans-serif;
+}
+
+.margin-fix {
+  margin-right: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2d6cdf;
+  font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+  color: #1d4ab8;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
